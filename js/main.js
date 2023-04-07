@@ -26,7 +26,7 @@ const projectAnalysisService = "Servizio di Project Analysis"
 let discountCodesArray = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
 //TODO: CREARE L'ARRAY DI PREZZI DA DARE COME ARGOMENTO ALLA FUNZIONE
-backendServicePrice =  fixedToTwoTransform(backendServicePrice);
+backendServicePrice = fixedToTwoTransform(backendServicePrice);
 frontendServicePrice = fixedToTwoTransform(frontendServicePrice);
 projectAnalysisServicePrice = fixedToTwoTransform(projectAnalysisServicePrice);
 
@@ -37,19 +37,19 @@ projectAnalysisServicePrice = fixedToTwoTransform(projectAnalysisServicePrice);
 
 let listOption1 = document.createElement("option");
 listOption1.value = ` ${backendServicePrice}`
-listOption1.innerText=`${backendService}`+ ` ${backendServicePrice} €`; 
+listOption1.innerText = `${backendService}` + ` ${backendServicePrice} €`;
 
 document.getElementById("work").appendChild(listOption1);
 
 let listOption2 = document.createElement("option");
 listOption2.value = ` ${frontendServicePrice}`
-listOption2.innerText=`${frontendService}`+ ` ${frontendServicePrice} €`; 
+listOption2.innerText = `${frontendService}` + ` ${frontendServicePrice} €`;
 
 document.getElementById("work").appendChild(listOption2);
 
 let listOption3 = document.createElement("option");
 listOption3.value = ` ${projectAnalysisServicePrice}`
-listOption3.innerText=`${projectAnalysisService}`+ ` ${projectAnalysisServicePrice} €`; 
+listOption3.innerText = `${projectAnalysisService}` + ` ${projectAnalysisServicePrice} €`;
 
 document.getElementById("work").appendChild(listOption3);
 
@@ -62,19 +62,29 @@ e il prezzo finale viene calcolato senza applicare sconti.
 Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” 
 (con 2 decimali e il simbolo dell’euro) in un apposito tag HTML appena sotto il bottone send`
 
-//CREAZIONE DEL PREZZO
-let price = typeOfWork * hoursRequested * discount;
+//CREAZIONE VARIABILI EQUAZIONE DEL PREZZO
+
+
+let typeOfWork = document.getElementById("work").value;
+let hoursRequested = document.getElementById("hours").value;
+let discount = 1;
 
 //VALIDAZIONE CODICE SCONTO
 
 let userCodeInput = document.getElementById("discount").value;
 console.log(userCodeInput);
-if(discountCodesArray.includes(userCodeInput)){
+if (discountCodesArray.includes(`${userCodeInput}`)) {
     discount = 0.75;
-} else {discount= 1;}
+    discountCodesArray.splice(discountCodesArray.indexOf(userCodeInput));
+}else {
+    let alert = document.createElement("p");
+    alert.innerText="Il codice inserito non è valido";
+    document.getElementById("alert").appendChild(alert)
+    console.log("non è incluso")
+    }
 
-
-
+//FORMULAZIONE DEL PREZZO
+let price = typeOfWork * hoursRequested * discount;
 
 
 //------------------------------------------------------------------------
@@ -82,17 +92,17 @@ if(discountCodesArray.includes(userCodeInput)){
 //------------------------FUNZIONI----------------------------------------
 //TODO: CREARE L'ARRAY DA DA DARE COME PARAMETRO ALLA FUNZIONE
 //TOFIX: NON SALVA LE TRASFORMAZIONI
-function fixedToTwoTransform(num){
+function fixedToTwoTransform(num) {
     num = num.toFixed(2);
-  
-    
+
+
 
     return num;
-  
-} 
+
+}
 
 //TODO: RACCHIUDERE LA CREAZIONE DELLA LISTA DI OPZIONI DI LAVORO IN UNA FUNZIONE
-function jobOptionListCreator(){};
+function jobOptionListCreator() { };
 
 
 
