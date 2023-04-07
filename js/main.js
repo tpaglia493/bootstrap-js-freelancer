@@ -26,6 +26,12 @@ in modo che non sia più utilizzabile la volta successiva.
 
 //---------------------PROGRAMMA PRINCIPALE-------------------------------
 
+//DICHIARAZIONE DELLE VARIABILI
+const backendServicePrice = 20.50;
+const frontendServicePrice = 15.30;
+const projectAnalysisPrice = 33.60;
+
+let discountCodesArray = ["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
 
 
 
