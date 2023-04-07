@@ -55,12 +55,6 @@ document.getElementById("work").appendChild(listOption3);
 
 console.log(document.getElementById("work").value);
 
-`
-Se l’utente inserisce un codice promozionale valido, ha diritto ad uno sconto del 25% sul prezzo finale. 
-Se il codice inserito non è valido, il sito deve informare l’utente che il codice non è valido 
-e il prezzo finale viene calcolato senza applicare sconti. 
-Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” 
-(con 2 decimali e il simbolo dell’euro) in un apposito tag HTML appena sotto il bottone send`
 
 //CREAZIONE VARIABILI EQUAZIONE DEL PREZZO
 
@@ -85,7 +79,18 @@ if (discountCodesArray.includes(`${userCodeInput}`)) {
 
 //FORMULAZIONE DEL PREZZO
 let price = typeOfWork * hoursRequested * discount;
+price = fixedToTwoTransform(price);
 
+` 
+Il risultato del calcolo del prezzo finale deve essere visualizzato in “forma umana” 
+(con 2 decimali e il simbolo dell’euro) in un apposito tag HTML appena sotto il bottone send`
+function displayPrice(event){
+    event.preventDefault();
+    let priceDisplay = document.createElement("p");
+    priceDisplay.innerText=`"Il prezzo per il lavoro richiesto è di ${price} €`;
+    document.getElementById("price-display").appendChild(priceDisplay)
+
+}
 
 //------------------------------------------------------------------------
 
