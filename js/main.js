@@ -27,11 +27,37 @@ in modo che non sia più utilizzabile la volta successiva.
 //---------------------PROGRAMMA PRINCIPALE-------------------------------
 
 //DICHIARAZIONE DELLE VARIABILI
-const backendServicePrice = 20.50;
-const frontendServicePrice = 15.30;
-const projectAnalysisPrice = 33.60;
+let backendServicePrice = 20.50;
+const backendService = "Servizio Back-End";
 
-let discountCodesArray = ["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
+let frontendServicePrice = 15.30;
+const frontendService = "Servizio Front-end"
+
+let projectAnalysisServicePrice = 33.60;
+const projectAnalysisService = "Servizio di Project Analysis"
+
+let discountCodesArray = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+
+fixedToTwoTransform(backendServicePrice, frontendServicePrice, projectAnalysisServicePrice);
+
+//CREO E APPENDO ALL'ELEMENTO HTML select LA LISTA DI TIPI DI LAVORO CON IL LORO PREZZO
+//TODO: CREARE ARRAY SERVIZI, ARRAY PREZZI, CICLO FOR PER CREARE E APPENDERE ELEMENTI ALLA LISTA
+
+let listOption1 = document.createElement("option");
+listOption1.innerText=`${backendService}`+ ` ${backendServicePrice} €`; 
+
+document.getElementById("work").appendChild(listOption1);
+
+let listOption2 = document.createElement("option");
+listOption2.innerText=`${frontendService}`+ ` ${frontendServicePrice} €`; 
+
+document.getElementById("work").appendChild(listOption2);
+
+let listOption3 = document.createElement("option");
+listOption3.innerText=`${projectAnalysisService}`+ ` ${projectAnalysisServicePrice} €`; 
+
+document.getElementById("work").appendChild(listOption3);
+
 
 
 
@@ -43,7 +69,17 @@ let discountCodesArray = ["YHDNU32","JANJC63","PWKCN25","SJDPO96","POCIE24"];
 //------------------------------------------------------------------------
 
 //------------------------FUNZIONI----------------------------------------
+//TODO: CREARE L'ARRAY DA DA DARE COME PARAMETRO ALLA FUNZIONE
+//TOFIX: NON SALVA LE TRASFORMAZIONI
+function fixedToTwoTransform(num1,num2,num3){
+    num1 = num1.toFixed(2)
+    num2 = num2.toFixed(2)
+    num3 = num3.toFixed(2)
+    
+} 
 
+//TODO: RACCHIUDERE LA CREAZIONE DELLA LISTA DI OPZIONI DI LAVORO IN UNA FUNZIONE
+function jobOptionListCreator(){};
 
 
 
