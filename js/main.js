@@ -80,14 +80,14 @@ function displayPrice() {
     //VALIDAZIONE CODICE SCONTO
     let userCodeInput = document.getElementById("discount").value;
     console.log(userCodeInput);
-
+document.getElementById("alert-div").innerHTML ="";
     if (discountCodesArray.includes(`${userCodeInput}`)) {
         discount = 0.75;
-        discountCodesArray.splice(discountCodesArray.indexOf(userCodeInput));
+        discountCodesArray.splice(discountCodesArray.indexOf(userCodeInput),1);
     } else {
         let alert = document.createElement("p");
         alert.innerText = "Il codice inserito non è valido";
-        document.getElementById("alert").appendChild(alert)
+        document.getElementById("alert-div").append(alert);
         console.log("non è incluso")
     }
     //FORMULAZIONE DEL PREZZO
@@ -97,6 +97,7 @@ function displayPrice() {
 
 
     //STAMPA A SCHERMO DEL PREZZO
+    document.getElementById("price-display").innerHTML="";
     let priceDisplay = document.createElement("p");
     priceDisplay.innerText = `Il prezzo per il lavoro richiesto è di ${price} €`;
     document.getElementById("price-display").appendChild(priceDisplay);
