@@ -38,7 +38,11 @@ const projectAnalysisService = "Servizio di Project Analysis"
 
 let discountCodesArray = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
-fixedToTwoTransform(backendServicePrice, frontendServicePrice, projectAnalysisServicePrice);
+//TODO: CREARE L'ARRAY DI PREZZI DA DARE COME ARGOMENTO ALLA FUNZIONE
+backendServicePrice =  fixedToTwoTransform(backendServicePrice);
+frontendServicePrice = fixedToTwoTransform(frontendServicePrice);
+projectAnalysisServicePrice = fixedToTwoTransform(projectAnalysisServicePrice);
+
 
 //CREO E APPENDO ALL'ELEMENTO HTML select LA LISTA DI TIPI DI LAVORO CON IL LORO PREZZO
 //TODO: CREARE ARRAY SERVIZI, ARRAY PREZZI, CICLO FOR PER CREARE E APPENDERE ELEMENTI ALLA LISTA
@@ -71,11 +75,13 @@ document.getElementById("work").appendChild(listOption3);
 //------------------------FUNZIONI----------------------------------------
 //TODO: CREARE L'ARRAY DA DA DARE COME PARAMETRO ALLA FUNZIONE
 //TOFIX: NON SALVA LE TRASFORMAZIONI
-function fixedToTwoTransform(num1,num2,num3){
-    num1 = num1.toFixed(2)
-    num2 = num2.toFixed(2)
-    num3 = num3.toFixed(2)
+function fixedToTwoTransform(num){
+    num = num.toFixed(2);
+  
     
+
+    return num;
+  
 } 
 
 //TODO: RACCHIUDERE LA CREAZIONE DELLA LISTA DI OPZIONI DI LAVORO IN UNA FUNZIONE
